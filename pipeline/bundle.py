@@ -41,7 +41,8 @@ have = sum(os.path.exists(f"{CACHE}/{p['a']}.jpg") for p in prods)
 print(f"covers: {have}/{len(prods)}")
 
 def thumb(a):
-    path = f"{CACHE}/{a}.jpg"
+    own = (by_id.get(a) or {}).get("im")
+    path = f"{SITE}/{own}" if own else f"{CACHE}/{a}.jpg"
     if not os.path.exists(path): return None
     try:
         im = Image.open(path).convert("RGB")
@@ -51,6 +52,7 @@ def thumb(a):
     except Exception:
         return None
 
+by_id = {p["a"]: p for p in prods}
 if os.path.exists(DIST): shutil.rmtree(DIST)
 os.makedirs(f"{DIST}/data/ms"); os.makedirs(f"{DIST}/data/img")
 shards = {}

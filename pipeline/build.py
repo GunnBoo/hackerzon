@@ -7,6 +7,10 @@ cands = json.load(open(f"{D}/entities.json"))
 for e in cands.values(): e["n_mentions"] = len(e["mentions"])
 ol = json.load(open(f"{D}/openlibrary.json"))
 olc = json.load(open(f"{D}/olcovers.json")) if os.path.exists(f"{D}/olcovers.json") else {}
+imgc = json.load(open(f"{D}/imgcredits.json")) if os.path.exists(f"{D}/imgcredits.json") else {}
+def own_img(a):
+    f = re.sub(r"[^A-Za-z0-9._-]", "_", a) + ".jpg"
+    return f"img/{f}" if a in imgc and os.path.exists(f"{OUT}/../img/{f}") else None
 labels = {}
 for fn in sorted(glob.glob(f"{D}/labels/*.jsonl")) + sorted(glob.glob(f"{D}/labels2/*.jsonl")):
     for line in open(fn):
@@ -106,6 +110,7 @@ for a, o in kept.items():
         "src": sorted(c.get("src", {}), key=lambda k: -c["src"][k]),
         "isbn": bool(c.get("asin") and re.fullmatch(r"\d{9}[\dX]", c["asin"])),
         "oc": olc.get(a),
+        "im": own_img(a), "ic": {k: v for k, v in imgc.get(a, {}).items() if k in ("src", "url", "license", "artist")} if own_img(a) else None,
         "pub": meta.get("year"), "pg": meta.get("pages"),
     })
 prods.sort(key=lambda p: (-p["sc"], -p["na"]))

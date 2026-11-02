@@ -42,6 +42,7 @@ function toast(msg) { const t = $('#toast'); t.textContent = msg; t.classList.ad
 /* ---------- images: Amazon by ASIN -> other editions -> Open Library cover -> drawn placeholder ---------- */
 function imgSrcs(p) {
   const out = p.amz ? [p.amz, ...(p.ed || [])].slice(0, 3).map((a) => `https://m.media-amazon.com/images/P/${a}.01._SCLZZZZZZZ_.jpg`) : [];
+  if (p.im) out.unshift(p.im);  // picture we found and host ourselves (Wikimedia Commons, Open Library, ...)
   if (p.isbn) out.push(`https://covers.openlibrary.org/b/isbn/${p.amz}-L.jpg?default=false`);
   if (p.oc) out.push(`https://covers.openlibrary.org/b/id/${p.oc}-L.jpg?default=false`);
   if (!out.length) out.push('data:,');
@@ -96,6 +97,12 @@ const up = (p, unit = true) => `<span class="up"><span class="tr">▲</span><spa
 function meter(p) {
   const lvl = Math.max(1, Math.min(5, Math.ceil((Math.log(1 + p.sc) / Math.log(1 + S.maxSc)) * 5)));
   return `<span class="meter" title="${esc(`Recommended in ~${Math.round(p.sc)} different months`)}"><span class="bars">${[1, 2, 3, 4, 5].map((i) => `<i class="${i <= lvl ? 'on' : ''}"></i>`).join('')}</span>${p.na.toLocaleString()} HNers</span>`;
+}
+function imgCredit(p) {
+  const c = p.ic;
+  if (c && c.src === 'Wikimedia Commons') return `Photo${c.artist ? ' by ' + esc(c.artist) : ''}, <a href="${esc(c.url)}" target="_blank" rel="noopener noreferrer">${esc(c.license || 'free license')}, via Wikimedia Commons</a>`;
+  if (c) return `Cover via <a href="${esc(c.url)}" target="_blank" rel="noopener noreferrer">${esc(c.src)}</a>, not an A/B-tested hero shot.`;
+  return `${p.amz ? 'Image from Amazon' : p.oc ? 'Cover from Open Library' : 'No product photo'}, not an A/B-tested hero shot.`;
 }
 const byline = (p) => (p.k === 'book' ? `by ${esc(p.by)}` : esc(p.by));
 const choice = (p) => (p.hc ? `<span class="choice"><b>HN's</b> Choice</span>` : '');
@@ -300,7 +307,7 @@ function product(a) {
   $('#app').innerHTML = `
   <div class="crumbs white"><a href="#/s?d=${encodeURIComponent(p.d)}">${esc(p.d)}</a> › <a href="#/s?d=${encodeURIComponent(p.d)}&sub=${encodeURIComponent(p.sub)}">${esc(p.sub)}</a></div>
   <div class="pdp">
-    <div class="gallery">${img(p, true)}<div class="note">${p.amz ? 'Image from Amazon' : p.oc ? 'Cover from Open Library' : 'No product photo'}, not an A/B-tested hero shot.</div></div>
+    <div class="gallery">${img(p, true)}<div class="note">${imgCredit(p)}</div></div>
     <div style="min-width:0">
       <h1>${esc(p.t)}</h1>
       <div class="by">${p.k === 'book' ? `by <a href="#/s?q=${encodeURIComponent(p.by.split(/,| et al/)[0])}">${esc(p.by)}</a> (Author)` : `Brand: <a href="#/s?q=${encodeURIComponent(p.by)}">${esc(p.by)}</a>`}</div>
