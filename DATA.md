@@ -1,7 +1,7 @@
 # Hackerzon data
 
 The products Hacker News commenters kept recommending to each other, 2007–2026, as plain JSON lines.
-This is the data behind https://boo-geonhyeok.github.io/hackerzon/. Give the zip to your agent and ask for your own version:
+This is the data behind https://gunnboo.github.io/hackerzon/. Give the zip to your agent and ask for your own version:
 a different store, a weekly email of picks in your topics, a terminal browser, an analysis.
 
 ## Files

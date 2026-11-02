@@ -10,7 +10,7 @@ todo = [] if __name__ != "__main__" else [a for a in json.load(open(f"{ROOT}/dat
 OUT = f"{ROOT}/site/img"; os.makedirs(OUT, exist_ok=True)
 CRED = f"{ROOT}/data/imgcredits.json"
 credits = json.load(open(CRED)) if os.path.exists(CRED) else {}
-UA = {"User-Agent": "Hackerzon/1.0 (https://github.com/Boo-Geonhyeok/hackerzon; image lookup)"}
+UA = {"User-Agent": "Hackerzon/1.0 (https://github.com/GunnBoo/hackerzon; image lookup)"}
 FREE = re.compile(r"^(cc[ -]?by|cc[ -]?zero|cc0|public domain|pd|gfdl|attribution|no restrictions)", re.I)
 
 def get(url, as_json=True, tries=3):

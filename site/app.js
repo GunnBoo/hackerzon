@@ -475,7 +475,7 @@ function about() {
   <h2>What's not here</h2>
   <p>No sponsored results, ads, upsells, "frequently bought together" bundles or Subscribe &amp; Save. No affiliate tags: "View on Amazon" goes to the plain product page. No prices, since they change constantly and we don't sell anything. AI slop books never get recommended by thousands of different people over a decade, so they aren't here either.</p>
   <h2>Get the data</h2>
-  <p>Everything behind this store is yours to reuse. <a href="https://github.com/Boo-Geonhyeok/hackerzon/releases/latest/download/hackerzon-data.zip">Download the data</a> (one zip: every product, every HN comment with its stance, and a DATA.md written for agents). Point your Claude at it and ask for your own version. The pipeline code is on <a href="https://github.com/Boo-Geonhyeok/hackerzon">GitHub</a>. Released under ODC-By 1.0, like the Hacker News archive it comes from.</p>
+  <p>Everything behind this store is yours to reuse. <a href="https://github.com/GunnBoo/hackerzon/releases/latest/download/hackerzon-data.zip">Download the data</a> (one zip: every product, every HN comment with its stance, and a DATA.md written for agents). Point your Claude at it and ask for your own version. The pipeline code is on <a href="https://github.com/GunnBoo/hackerzon">GitHub</a>. Released under ODC-By 1.0, like the Hacker News archive it comes from.</p>
   <h2>Privacy</h2>
   <p>No accounts. Your list, likes and history are stored in this browser's local storage and never leave it. Likes and history steer the "Recommended for you" row.</p>
   <h2>Caveats</h2>

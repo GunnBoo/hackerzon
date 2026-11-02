@@ -4,9 +4,9 @@ An Amazon-style store that only carries products Hacker News commenters have rec
 
 It answers [this reply](https://x.com/tylerpalmer/status/2116960851634893052) to Karpathy's [HackerTube post](https://x.com/karpathy/status/2116957135661945283): "now do Amazon and remove sponsored posts, ads, upsells, and subscribe and save for everything".
 
-**Live:** https://boo-geonhyeok.github.io/hackerzon/
+**Live:** https://gunnboo.github.io/hackerzon/
 
-**Data:** [hackerzon-data.zip](https://github.com/Boo-Geonhyeok/hackerzon/releases/latest/download/hackerzon-data.zip) (every product and HN comment, with a [DATA.md](DATA.md) written for agents)
+**Data:** [hackerzon-data.zip](https://github.com/GunnBoo/hackerzon/releases/latest/download/hackerzon-data.zip) (every product and HN comment, with a [DATA.md](DATA.md) written for agents)
 
 ## Run it
 
@@ -31,7 +31,7 @@ Then:
 6. `pipeline/covers.py` finds Open Library covers for books without an ISBN; `pipeline/build.py` ranks items by roughly how many different months they were recommended in (each person counts for at most 2 months) and writes `site/data/`.
 7. `pipeline/bundle.py` packages `dist/` for publishing as a claude.ai artifact (covers inlined, files sharded); `pipeline/export_data.py` writes the data zip.
 
-The public site is `site/`, deployed to GitHub Pages by `.github/workflows/pages.yml` on every push to `main`. The working data (`data/`, ~330 MB) isn't in the repo; the release zip has the finished dataset. [hackerzon-pipeline-work.zip](https://github.com/Boo-Geonhyeok/hackerzon/releases/download/data-2026-11/hackerzon-pipeline-work.zip) holds the agents' raw outputs (label batches, Ask HN extractions, image credits), so the store can be rebuilt without re-running them; the raw HN comments can be re-fetched with `pipeline/fetch.py` and `pipeline/fetch_threads.py`.
+The public site is `site/`, deployed to GitHub Pages by `.github/workflows/pages.yml` on every push to `main`. The working data (`data/`, ~330 MB) isn't in the repo; the release zip has the finished dataset. [hackerzon-pipeline-work.zip](https://github.com/GunnBoo/hackerzon/releases/download/data-2026-11/hackerzon-pipeline-work.zip) holds the agents' raw outputs (label batches, Ask HN extractions, image credits), so the store can be rebuilt without re-running them; the raw HN comments can be re-fetched with `pipeline/fetch.py` and `pipeline/fetch_threads.py`.
 
 To rebuild after changing labels:
 
