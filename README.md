@@ -31,7 +31,7 @@ Then:
 6. `pipeline/covers.py` finds Open Library covers for books without an ISBN; `pipeline/build.py` ranks items by roughly how many different months they were recommended in (each person counts for at most 2 months) and writes `site/data/`.
 7. `pipeline/bundle.py` packages `dist/` for publishing as a claude.ai artifact (covers inlined, files sharded); `pipeline/export_data.py` writes the data zip.
 
-The public site is `site/`, deployed to GitHub Pages by `.github/workflows/pages.yml` on every push to `main`. The working data (`data/`, ~330 MB) isn't in the repo; the release zip has the finished dataset.
+The public site is `site/`, deployed to GitHub Pages by `.github/workflows/pages.yml` on every push to `main`. The working data (`data/`, ~330 MB) isn't in the repo; the release zip has the finished dataset. [hackerzon-pipeline-work.zip](https://github.com/Boo-Geonhyeok/hackerzon/releases/download/data-2026-11/hackerzon-pipeline-work.zip) holds the agents' raw outputs (label batches, Ask HN extractions, image credits), so the store can be rebuilt without re-running them; the raw HN comments can be re-fetched with `pipeline/fetch.py` and `pipeline/fetch_threads.py`.
 
 To rebuild after changing labels:
 
