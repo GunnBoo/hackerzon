@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hackerzon</title>
+<meta name="description" content="Shop only the things Hacker News keeps recommending. No ads, no sponsored results, no upsells.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://m.media-amazon.com https://images-na.ssl-images-amazon.com https://covers.openlibrary.org https://archive.org https://*.archive.org; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta property="og:title" content="Hackerzon">
+<meta property="og:description" content="2,861 products Hacker News kept recommending from 2007 to 2026. No ads, no sponsored results, no upsells.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23131921'/><path d='M16 6 L27 25 H5 Z' fill='%23ff6600'/></svg>">
+<link rel="stylesheet" href="style.css?v=6">
+</head>
+<body>
+<header class="hdr">
+  <a class="box logo-box" href="#/" aria-label="Hackerzon home">
+    <span class="logo"><span class="tri">▲</span>hackerzon<span class="tld">.news</span></span>
+  </a>
+  <a class="box hide-m" href="#/about">
+    <small>Deliver to</small><b>Curious hackers</b>
+  </a>
+  <form class="search" id="searchForm" role="search">
+    <select id="searchDept" aria-label="Search in department"><option value="">All</option></select>
+    <input id="q" type="search" placeholder="Search Hackerzon" autocomplete="off" aria-label="Search">
+    <button aria-label="Search"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg></button>
+  </form>
+  <a class="box hide-m" href="#/history">
+    <small>Hello, HNer — no sign in</small><b>History</b>
+  </a>
+  <a class="box hide-m" href="#/liked">
+    <small>Steers your recs</small><b>Liked</b>
+  </a>
+  <a class="box cart" href="#/list" aria-label="Your list">
+    <span class="n" id="listCount">0</span>
+    <svg width="38" height="30" viewBox="0 0 38 30" fill="none" stroke="#fff" stroke-width="2.2"><path d="M1 3h6l4 17h20l4-12H10"/><circle cx="14" cy="26" r="2.2" fill="#fff"/><circle cx="29" cy="26" r="2.2" fill="#fff"/></svg>
+    <b>List</b>
+  </a>
+</header>
+<nav class="subnav" id="subnav"></nav>
+<main id="app"><div class="empty">Loading the HN-approved aisles…</div></main>
+<a class="totop" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a>
+<footer>
+  <p>Hackerzon lists only products that Hacker News commenters kept recommending over the years. No sponsored results, no ads, no upsells, no Subscribe &amp; Save, no affiliate tags.</p>
+  <p>Inspired by <a href="https://hackertube.org">HackerTube</a> and <a href="https://x.com/tylerpalmer/status/2116960851634893052">this reply</a> to <a href="https://x.com/karpathy/status/2116957135661945283">@karpathy</a>. Not affiliated with Amazon, Hacker News or Y Combinator. Comments © their authors, linked back to HN.</p>
+  <p class="kbd-help">Press / to search</p>
+</footer>
+<div class="toast" id="toast"></div>
+<script src="app.js?v=6"></script>
+</body>
+</html>

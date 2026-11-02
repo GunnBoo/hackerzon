@@ -1,0 +1,7 @@
+# working data (raw HN comments, label batches, image cache): ~330 MB, rebuilt by pipeline/
+/data/
+/dist/
+/export/
+/.claude/
+__pycache__/
+.DS_Store
